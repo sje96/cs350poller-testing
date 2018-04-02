@@ -1,4 +1,4 @@
-# cs350poller-2
+# cs350poller-test
 A simple django application based on django tutorial part 5 (Automated Testing). This repository reflects changes assigned in Homework 7. Your task is to implement the testing functions for the polling app.
 
 # Get Started
