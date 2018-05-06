@@ -11,22 +11,22 @@ class Question(models.Model):
     pub_date = models.DateTimeField('date published')
 
     def was_published_recently(self):
-		now = timezone.now()
+        now = timezone.now()
         return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
-		
+        
     def get_choices(self):
         """Returns a list of choice objects associated with this question."""
         return list(self.choice_set.all())
 
     def get_leading_choice(self):
         """Returns the choice object with the most votes."""
-		m_votes = 0
-		topvotes = ''
-		for i in self.get_choices():		
-			if i.votes > m_votes:
-				m_votes = i.votes
-				topvotes = i
-		return topvotes  
+        m_votes = 0
+        topvotes = ''
+        for i in self.get_choices():        
+            if i.votes > m_votes:
+                m_votes = i.votes
+                topvotes = i
+        return topvotes  
 
     def get_leading_choice_pct(self):
         """Returns the percentage of votes for the leading choice."""
